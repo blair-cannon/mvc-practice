@@ -1,4 +1,4 @@
-class Model {
+class Model {           // this would hold data/states
     constructor() {
 
     }
