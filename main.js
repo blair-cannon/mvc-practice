@@ -15,14 +15,15 @@ class View {
 }
 
 class Controller {
-    constructor(model, view) {                  // pass model and view into constructor bc it communicates/uses both
-        this.m = model;
-        this.v = view;
+    constructor() {                  // pass model and view into constructor bc it communicates/uses both
+        this.m = new Model();
+        this.v = new View();
         this.v.newInput(this.handleInput);     // allows handleInput to run when the newInput from view (v) has had an event
     }
-    handleInput(e) {
-        text.textContent = e.target.value;      // target references the object that the event listener was placed on, the input box
+    handleInput = (e) => {      // arrow function inherits this from controller
+        console.log(this);
+        this.v.text.textContent = e.target.value;      // target references the object that the event listener was placed on, the input box
     }
 }
 
-new Controller(new Model(), new View());        // new instances of each class...without the instances, the classes are just like blueprints
+new Controller();        // new instances of each class...without the instances, the classes are just like blueprints
